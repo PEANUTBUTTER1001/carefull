@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Carefull</string>
+
+    <string-array name="bottom_nav_items">
+        <item>홈</item>
+        <item>운동/식단</item>
+        <item>진단/검색</item>
+        <item>커뮤니티</item>
+        <item>My</item>
+    </string-array>
 </resources>
