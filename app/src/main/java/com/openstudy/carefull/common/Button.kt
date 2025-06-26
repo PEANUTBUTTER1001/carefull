@@ -28,15 +28,20 @@ fun BottomNavigationBar(currentRoute: String, onTabSelected: (String) -> Unit = 
             modifier = Modifier,
             thickness = 2.dp,
         )
-        NavigationBar{
+
+        NavigationBar {
             navItems.forEach { item ->
                 NavigationBarItem(
-                    icon = { Image(painter = painterResource(R.drawable.app_logo),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .size(30.dp, 30.dp)
-                            .clip(RoundedCornerShape(1.dp)),
-                        contentScale = ContentScale.Crop) },
+                    icon = {
+                        Image(
+                            painter = painterResource(R.drawable.app_logo),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(30.dp, 30.dp)
+                                .clip(RoundedCornerShape(1.dp)),
+                            contentScale = ContentScale.Crop
+                        )
+                    },
                     label = { Text(item) },
                     selected = (currentRoute == item),
                     onClick = { onTabSelected(item) },
