@@ -33,7 +33,7 @@ fun Home(navController: NavController) {
 
     Scaffold(
         bottomBar = {
-            BottomNavigationBar(R.string.home.toString())
+            BottomNavigationBar(R.string.home)
         }
     ) { innerPadding ->
         Column(
