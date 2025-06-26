@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,6 +25,7 @@ import com.openstudy.carefull.R
 import com.openstudy.carefull.common.BottomNavigationBar
 import com.openstudy.carefull.ui.theme.CarefullTheme
 import com.openstudy.carefull.common.MenuButton
+import com.openstudy.carefull.common.RowLine
 import com.openstudy.carefull.common.SwitchMenuButton
 
 @Composable
@@ -42,7 +44,7 @@ fun MyPage() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
-            Text(text = "마이페이지",
+            Text(text = stringResource(R.string.mypage),
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black)
@@ -58,13 +60,13 @@ fun MyPage() {
             )
 
             RowLine()
-            MenuButton(text = "개인정보 관리", onClick = { })
+            MenuButton(text = stringResource(R.string.account_management), onClick = { })
             RowLine()
-            MenuButton(text = "기초(활동)대사량 측정", onClick = { })
+            MenuButton(text = stringResource(R.string.basal_metabolic_rate_measurement), onClick = { })
             RowLine()
-            SwitchMenuButton(text = "알림 설정")
+            SwitchMenuButton(text = stringResource(R.string.notification_setting))
             RowLine()
-            MenuButton(text = "작성 글 관리", onClick = { })
+            MenuButton(text = stringResource(R.string.writing_management), onClick = { })
             RowLine()
         }
     }
