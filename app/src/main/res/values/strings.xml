@@ -33,7 +33,9 @@
     <string name="change_nickname">닉네임 변경</string>
     <string name="change_password">비밀번호 변경</string>
     <string name="save">저장하기</string>
-
+    <string name="exercise_and_diet">운동/식단</string>
+    <string name="exercise">운동</string>
+    <string name="diet">식단</string>
 
 
     <string-array name="bottom_nav_items">
@@ -42,5 +44,11 @@
         <item>진단/검색</item>
         <item>커뮤니티</item>
         <item>My</item>
+    </string-array>
+
+    <string-array name="exercise_and_diet">
+        <item>운동</item>
+        <item>식단</item>
+
     </string-array>
 </resources>
