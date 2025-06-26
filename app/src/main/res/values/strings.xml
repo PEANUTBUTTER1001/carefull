@@ -17,13 +17,22 @@
     <string name="mypage">마이페이지</string>"
     <string name="account_management">계정 관리</string>
     <string name="basal_metabolic_rate_measurement">기초(활동)대사량 측정</string>
+    <string name="gender">성별</string>
+    <string name="weight">체중</string>
+    <string name="height">신장</string>
+    <string name="age">나이(만)</string>
+    <string name="basal_metabolic_rate">기초대사량</string>
+    <string name="activity_setting">활동량 설정</string>
+    <string name="total_daily_energy">일일대사량</string>
+    <string name="kcal">kcal</string>
     <string name="notification_setting">알림 설정</string>
     <string name="writing_management">작성 글 관리</string>
     <string name="profile_management">프로필 관리</string>
     <string name="delete_account">계정 탈퇴</string>
-    <string name="change_profile">프로필 변경</string>"
+    <string name="change_profile">프로필 변경</string>
     <string name="change_nickname">닉네임 변경</string>
     <string name="change_password">비밀번호 변경</string>
+    <string name="save">저장하기</string>
 
 
 
