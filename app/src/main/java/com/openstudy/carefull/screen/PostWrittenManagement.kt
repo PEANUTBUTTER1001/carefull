@@ -140,7 +140,6 @@ fun PostItem(post: Post) {
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun PostWrittenManagementPreview() {
