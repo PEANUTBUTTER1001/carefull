@@ -58,7 +58,7 @@ fun PostWrittenManagement() {
 }
 
 
-// 더미데이터
+// 더미데이터 카테고리 추가할것
 data class Post(
     val postNumber: Int, // 글번호
     val title: String, // 글 제목

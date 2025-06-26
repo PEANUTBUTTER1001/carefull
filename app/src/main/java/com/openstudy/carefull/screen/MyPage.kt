@@ -35,7 +35,6 @@ fun MyPage() {
             BottomNavigationBar(currentRoute = R.string.mypage)
         }
     ) { innerPadding ->
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
