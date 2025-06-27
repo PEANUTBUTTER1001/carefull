@@ -54,7 +54,7 @@ import com.openstudy.carefull.ui.theme.CarefullTheme
 
 @Composable
 fun ExerciseAndDiet(navController: NavController) {
-    var selectedTabIndex by remember { mutableIntStateOf(1) }
+    var selectedTabIndex by remember { mutableIntStateOf(0) }
 
     Scaffold(
         topBar = {
@@ -105,8 +105,7 @@ fun Exercise() {
         item {
             Text(
                 text = "운동을 선택하세요.",
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp),
@@ -142,7 +141,8 @@ fun Exercise() {
                         .height(60.dp),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text(text = exercise)
+                    Text(text = exercise,
+                        style = MaterialTheme.typography.bodyMedium)
                 }
                 Spacer(modifier = Modifier.height(10.dp))
             }
@@ -165,7 +165,11 @@ fun ExerciseCountDialog(
     ) {
         Card(
             modifier = Modifier.fillMaxWidth(),
-            shape = MaterialTheme.shapes.large
+            shape = MaterialTheme.shapes.large,
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface,
+                contentColor = MaterialTheme.colorScheme.onSurface
+            )
         ) {
             Column(
                 modifier = Modifier.padding(24.dp),
@@ -176,27 +180,29 @@ fun ExerciseCountDialog(
                     Spacer(modifier = Modifier.weight(0.5f))
                     Text(
                         text = exerciseName,
-                        style = MaterialTheme.typography.headlineSmall,
+                        style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.weight(0.25f))
                     TextButton(onClick = onDismiss) {
                         Text(
                             text = "닫기",
-                            fontSize = 18.sp,
-                            color = Color.Gray
+                            style = MaterialTheme.typography.labelLarge,
+                            color = Color.Gray,
+                            modifier = Modifier.padding(bottom = 10.dp)
                         )
                     }
                 }
                 Row {
                     Text(
                         text = "$count",
-                        style = MaterialTheme.typography.headlineMedium,
-                        modifier = Modifier.padding(horizontal = 24.dp)
+                        style = MaterialTheme.typography.titleLarge,
+                        modifier = Modifier.padding(top = 5.dp)
                     )
+                    Spacer(modifier = Modifier.width(5.dp))
                     Text(
                         text = "회",
-                        fontSize = 24.sp
+                        style = MaterialTheme.typography.titleLarge,
                     )
                 }
 
@@ -212,14 +218,16 @@ fun ExerciseCountDialog(
                         },
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
-                    ) { Text("-5", fontSize = 22.sp) }
+                    ) { Text("-5",
+                        style = MaterialTheme.typography.bodyLarge)}
                     Spacer(modifier = Modifier.width(10.dp))
                     Button(
                         onClick = { if (count > 1) count-- },
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
                     ) {
-                        Text("-1", fontSize = 22.sp)
+                        Text("-1",
+                            style = MaterialTheme.typography.bodyLarge)
                     }
 
                     Spacer(modifier = Modifier.width(10.dp))
@@ -228,7 +236,8 @@ fun ExerciseCountDialog(
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
                     ) {
-                        Text("+1", fontSize = 22.sp)
+                        Text("+1",
+                            style = MaterialTheme.typography.bodyLarge)
                     }
                     Spacer(modifier = Modifier.width(10.dp))
                     Button(
@@ -240,7 +249,8 @@ fun ExerciseCountDialog(
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
                     ) {
-                        Text("+5", fontSize = 22.sp)
+                        Text("+5",
+                            style = MaterialTheme.typography.bodyLarge)
                     }
                 }
                 Row(
@@ -249,10 +259,14 @@ fun ExerciseCountDialog(
                 ) {
 
                     Spacer(modifier = Modifier.width(8.dp))
-                    Button(modifier = Modifier.fillMaxWidth().height(50.dp),
+                    Button(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
                         shape = MaterialTheme.shapes.large,
                         onClick = { onConfirm(count) }) {
-                        Text("확인")
+                        Text("확인",
+                            style = MaterialTheme.typography.titleLarge)
                     }
                 }
             }
@@ -280,9 +294,7 @@ fun TopNavigationBar(
                 onClick = { onTabSelected(index, item) },
                 text = {
                     Text(
-                        text = item,
-                        fontSize = 20.sp,
-                        fontWeight = if (selectedTabIndex == index) FontWeight.Bold else FontWeight.Normal
+                        text = item, style = MaterialTheme.typography.titleMedium
                     )
                 },
                 selectedContentColor = MaterialTheme.colorScheme.primary,
@@ -296,12 +308,10 @@ fun TopNavigationBar(
 fun Diet() {
     var addedFoods by remember { mutableStateOf<List<AddedFood>>(emptyList()) }
 
-    Column() {
+    Column {
         Spacer(modifier = Modifier.height(24.dp))
         Text(
-            text = "오늘 식사 내역",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
+            text = "오늘 식사 내역", style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),

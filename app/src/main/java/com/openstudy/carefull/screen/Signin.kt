@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -54,9 +55,7 @@ fun Signin(navController: NavController) {
             modifier = Modifier
                 .padding(top = 50.dp),
             text = stringResource(R.string.app_name),
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black
+            style = MaterialTheme.typography.titleLarge
         )
 
         Image(
@@ -77,10 +76,12 @@ fun Signin(navController: NavController) {
                 email = newText
             },
             label = {
-                Text(text = stringResource(R.string.email))
+                Text(text = stringResource(R.string.email),
+                    style = MaterialTheme.typography.bodyLarge)
             },
             placeholder = {
-                Text(text = stringResource(R.string.email_input))
+                Text(text = stringResource(R.string.email_input),
+                    style = MaterialTheme.typography.bodyLarge)
             },
             colors = TextFieldDefaults.colors(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
@@ -95,10 +96,12 @@ fun Signin(navController: NavController) {
                 password = inputNickName
             },
             label = {
-                Text(text = stringResource(R.string.password))
+                Text(text = stringResource(R.string.password),
+                    style = MaterialTheme.typography.bodyLarge)
             },
             placeholder = {
-                Text(text = stringResource(R.string.password_input))
+                Text(text = stringResource(R.string.password_input),
+                    style = MaterialTheme.typography.bodyLarge)
             },
             colors = TextFieldDefaults.colors(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -120,7 +123,8 @@ fun Signin(navController: NavController) {
             )
         )
         {
-            Text(text = stringResource(R.string.signin))
+            Text(text = stringResource(R.string.signin),
+                style = MaterialTheme.typography.labelLarge)
         }
 
         Spacer(modifier = Modifier.height(5.dp))
@@ -142,8 +146,9 @@ fun Signin(navController: NavController) {
             {
                 Text(
                     text = stringResource(R.string.find_id),
-                    fontSize = 11.sp
+                    style = MaterialTheme.typography.bodySmall
                 )
+
             }
             Text(text = "|")
             Button(
@@ -158,7 +163,7 @@ fun Signin(navController: NavController) {
             {
                 Text(
                     text = stringResource(R.string.find_password),
-                    fontSize = 11.sp
+                    style = MaterialTheme.typography.bodySmall
                 )
             }
             Text(text = "|")
@@ -174,11 +179,11 @@ fun Signin(navController: NavController) {
             {
                 Text(
                     text = stringResource(R.string.signup),
-                    fontSize = 11.sp
+                    style = MaterialTheme.typography.bodySmall
                 )
             }
         }
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(5.dp))
 
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -197,7 +202,10 @@ fun Signin(navController: NavController) {
                 )
             )
             {
-                Text(text = stringResource(R.string.signin_kakao))
+                Text(
+                    text = stringResource(R.string.signin_kakao),
+                    style = MaterialTheme.typography.labelLarge
+                )
             }
         }
     }

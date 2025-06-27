@@ -9,10 +9,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -47,9 +54,7 @@ fun PostWrittenManagement() {
         ) {
             Text(
                 text = stringResource(R.string.writing_management),
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black
+                style = MaterialTheme.typography.titleLarge
             )
             RowLine()
             PostList()
@@ -104,37 +109,38 @@ fun PostList() {
 fun PostItem(post: Post) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            contentColor = MaterialTheme.colorScheme.onSurface
+        )
     ) {
-        Row(modifier = Modifier.fillMaxWidth().padding(5.dp), verticalAlignment = Alignment.CenterVertically)
-        {
-            Text(text = post.title, fontWeight = FontWeight.Bold)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(text = post.title, style = MaterialTheme.typography.titleMedium)
             Spacer(modifier = Modifier.weight(0.5f))
-
-            TextButton(onClick = {},
-                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp),
-               ) {
-                Text(text = "수정",
-                    fontSize = 12.sp
-                    )
-            }
-            TextButton(onClick = {},
-                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp),
+            IconButton(onClick = {}
             ) {
-                Text(text = "삭제",
-                    fontSize = 12.sp
+                Icon(
+                    imageVector = Icons.Default.MoreVert,
+                    contentDescription = null,
+                    modifier = Modifier.size(28.dp)
                 )
             }
         }
         Column(modifier = Modifier.padding(4.dp)) {
-            Text(text = post.content)
+            Text(text = post.content, style = MaterialTheme.typography.bodyLarge)
             Spacer(modifier = Modifier.height(4.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(text = "작성일: ")
-                Text(text = post.createdAt)
+                Text(text = "작성일: ", style = MaterialTheme.typography.bodySmall)
+                Text(text = post.createdAt, style = MaterialTheme.typography.bodySmall)
                 Spacer(modifier = Modifier.fillMaxSize(0.35f))
-                Text(text = "댓글: ${post.commentCount}")
-                Text(text = " 좋아요: ${post.likeCount}")
+                Text(text = "댓글: ${post.commentCount}", style = MaterialTheme.typography.bodySmall)
+                Text(text = " 좋아요: ${post.likeCount}", style = MaterialTheme.typography.bodySmall)
             }
         }
     }

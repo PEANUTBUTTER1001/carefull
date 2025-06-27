@@ -1,6 +1,7 @@
 package com.openstudy.carefull.common
 
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -25,10 +26,13 @@ fun CustomTextField(
         onValueChange = onValueChange,
         modifier = modifier,
         label = {
-            Text(text = stringResource(id = labelResId))
+            Text(text = stringResource(id = labelResId), style = MaterialTheme.typography.bodyLarge)
         },
         placeholder = {
-            Text(text = stringResource(id = placeholderResId))
+            Text(
+                text = stringResource(id = placeholderResId),
+                style = MaterialTheme.typography.bodyLarge
+            )
         },
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         singleLine = true,

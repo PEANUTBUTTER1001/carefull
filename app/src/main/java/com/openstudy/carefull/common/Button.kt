@@ -51,16 +51,8 @@ fun BottomNavigationBar(currentRoute: Int, onTabSelected: (String) -> Unit = {})
             navItems.forEach { item ->
                 NavigationBarItem(
                     icon = {
-                        Image(
-                            painter = painterResource(R.drawable.app_logo),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(30.dp, 30.dp)
-                                .clip(RoundedCornerShape(1.dp)),
-                            contentScale = ContentScale.Crop
-                        )
                     },
-                    label = { Text(item) },
+                    label = { Text(item, style = MaterialTheme.typography.labelMedium) },
                     selected = (currentRoute.toString() == item),
                     onClick = { onTabSelected(item) },
                     colors = NavigationBarItemDefaults.colors(
@@ -78,7 +70,7 @@ fun MenuButton(text: String, onClick: () -> Unit) {
         modifier = Modifier
             .clickable(onClick = onClick)
     ) {
-        Text(text = text, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+        Text(text = text, style = MaterialTheme.typography.bodyLarge)
     }
 }
 
@@ -89,9 +81,7 @@ fun SwitchMenuButton(text: String) {
     {
         Text(
             text = text,
-            modifier = Modifier.weight(1f),
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold
+            modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge
         )
         Switch(
             checked = isChecked,

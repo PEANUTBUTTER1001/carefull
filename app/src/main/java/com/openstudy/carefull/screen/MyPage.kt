@@ -4,10 +4,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -41,27 +44,29 @@ fun MyPage() {
                 .padding(innerPadding)
                 .padding(top = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Text(text = stringResource(R.string.mypage),
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black)
 
+            Text(
+                text = stringResource(R.string.mypage),
+                style = MaterialTheme.typography.titleLarge
+            )
             //임시 프로필 아이콘
             Image(
                 painter = painterResource(id = R.drawable.app_logo),
-                contentDescription = "프로필 사진",
+                contentDescription = null,
                 modifier = Modifier
                     .size(120.dp)
                     .clip(CircleShape)
                     .border(1.dp, Color.Gray, CircleShape)
             )
-
+            Spacer(modifier = Modifier.height(16.dp))
             RowLine()
             MenuButton(text = stringResource(R.string.account_management), onClick = { })
             RowLine()
-            MenuButton(text = stringResource(R.string.basal_metabolic_rate_measurement), onClick = { })
+            MenuButton(
+                text = stringResource(R.string.basal_metabolic_rate_measurement),
+                onClick = { })
             RowLine()
             SwitchMenuButton(text = stringResource(R.string.notification_setting))
             RowLine()

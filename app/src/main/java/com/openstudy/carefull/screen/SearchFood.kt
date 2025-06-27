@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
@@ -20,6 +22,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -55,9 +58,7 @@ fun SearchFood() {
     ) {
         Text(
             text = "음식 검색",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black
+            style = androidx.compose.material3.MaterialTheme.typography.titleLarge
         )
         Spacer(modifier = Modifier.height(10.dp))
 
@@ -66,9 +67,17 @@ fun SearchFood() {
             onValueChange = { search = it },
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text("검색하기")
+                Text(
+                    "검색하기",
+                    style = MaterialTheme.typography.bodyLarge
+                )
             },
-            placeholder = { Text("음식을 검색하세요.") },
+            placeholder = {
+                Text(
+                    "음식을 검색하세요.",
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            },
             trailingIcon = {
                 if (search.isNotBlank()) {
                     IconButton(
@@ -101,11 +110,14 @@ fun SearchFood() {
             )
         )
         LazyColumn(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .weight(1f),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(items = searchResults,key = {it.id}) { food -> // searchResults 리스트를 순회하며 각 food에 대해 그림
+            items(
+                items = searchResults,
+                key = { it.id }) { food -> // searchResults 리스트를 순회하며 각 food에 대해 그림
                 FoodSearchResultItem(
                     food = food,
                     onAddClick = {
@@ -127,7 +139,11 @@ fun FoodSearchResultItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            contentColor = MaterialTheme.colorScheme.onSurface
+        )
     ) {
         Column(
             modifier = Modifier
@@ -138,13 +154,17 @@ fun FoodSearchResultItem(
             // 1. 음식 이름과 추가 버튼
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = food.name, // "치즈 햄버거"
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
+                    text = food.name,
+                    style = MaterialTheme.typography.bodyLarge,// "치즈 햄버거"
                     modifier = Modifier.weight(1f)
                 )
-                Button(onClick = onAddClick) {
-                    Text("추가")
+                IconButton(onClick = onAddClick) {
+                    Icon(
+                        imageVector = Icons.Default.AddCircle,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(28.dp)
+                    )
                 }
             }
 
@@ -186,8 +206,14 @@ fun searchDummyFood(query: String): List<Food> {
 @Composable
 fun NutritionInfo(label: String, value: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = label, fontSize = 12.sp, color = Color.Gray)
-        Text(text = value, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodySmall
+        )
+        Text(
+            text = value,
+            style = MaterialTheme.typography.labelLarge
+        )
     }
 }
 

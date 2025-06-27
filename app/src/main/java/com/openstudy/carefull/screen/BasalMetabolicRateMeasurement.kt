@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -48,15 +49,13 @@ fun BasalMetabolicRateMeasurement() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(top = 32.dp),
+                .padding(top = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             Text(
                 text = stringResource(id = R.string.basal_metabolic_rate_measurement),
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black
+                style = MaterialTheme.typography.titleLarge
             )
             Spacer(modifier = Modifier.height(70.dp))
             Row(
@@ -65,20 +64,26 @@ fun BasalMetabolicRateMeasurement() {
             ) {
                 Text(
                     text = stringResource(R.string.gender),
-                    fontSize = 16.sp,
+                    style = MaterialTheme.typography.bodyLarge
                 )
                 Spacer(modifier = Modifier.fillMaxWidth(0.38f))
                 RadioButton(
                     selected = (selectedGender == Gender.MALE),
                     onClick = { selectedGender = Gender.MALE }
                 )
-                Text(text = "남성")
+                Text(
+                    text = "남성",
+                    style = MaterialTheme.typography.bodyLarge
+                )
 
                 RadioButton(
                     selected = (selectedGender == Gender.FEMALE),
                     onClick = { selectedGender = Gender.FEMALE }
                 )
-                Text(text = "여성")
+                Text(
+                    text = "여성",
+                    style = MaterialTheme.typography.bodyLarge
+                )
             }
 
             MenuButton(text = stringResource(R.string.height), onClick = { })
@@ -93,18 +98,21 @@ fun BasalMetabolicRateMeasurement() {
                 Text(
                     modifier = Modifier.weight(0.6f),
                     text = stringResource(R.string.basal_metabolic_rate),
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
 
                 Text(
                     modifier = Modifier.weight(0.2f),
                     text = basalMetabolicRateKcal,
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
 
                 Text(
                     modifier = Modifier,
                     text = stringResource(R.string.kcal),
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
             }
@@ -119,18 +127,21 @@ fun BasalMetabolicRateMeasurement() {
                 Text(
                     modifier = Modifier.weight(0.6f),
                     text = stringResource(R.string.activity_setting),
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
 
                 Text(
                     modifier = Modifier.weight(0.2f),
                     text = basalMetabolicRateKcal,
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
 
                 Text(
                     modifier = Modifier,
                     text = stringResource(R.string.kcal),
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
             }
@@ -146,7 +157,10 @@ fun BasalMetabolicRateMeasurement() {
                 )
             )
             {
-                Text(text = stringResource(R.string.save))
+                Text(
+                    text = stringResource(R.string.save),
+                    style = MaterialTheme.typography.bodyLarge
+                )
             }
         }
     }

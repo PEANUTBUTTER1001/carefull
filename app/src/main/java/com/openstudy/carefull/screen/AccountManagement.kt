@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -26,7 +27,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.openstudy.carefull.R
 import com.openstudy.carefull.common.BottomNavigationBar
 import com.openstudy.carefull.common.MenuButton
@@ -50,9 +50,7 @@ fun AccountManagement() {
         ) {
             Text(
                 text = stringResource(R.string.account_management),
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black
+                style = MaterialTheme.typography.titleLarge
             )
 
             //임시 프로필 아이콘
@@ -89,12 +87,14 @@ fun AccountManagement() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Spacer(modifier = Modifier.fillMaxWidth(0.7f))
-                TextButton(onClick = {},
+                TextButton(
+                    onClick = {},
                     contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp),
                 ) {
-                    Text(text = stringResource(R.string.delete_account),
-                        fontSize = 15.sp,
-                        color = Color.Gray
+                    Text(
+                        text = stringResource(R.string.delete_account),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.outline
                     )
                 }
             }
