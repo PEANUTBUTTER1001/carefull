@@ -36,7 +36,9 @@
     <string name="exercise_and_diet">운동/식단</string>
     <string name="exercise">운동</string>
     <string name="diet">식단</string>
-
+    <string name="feed">피드</string>
+    <string name="social">소셜</string>
+    <string name="ranking">랭킹</string>
 
     <string-array name="bottom_nav_items">
         <item>홈</item>
@@ -49,6 +51,10 @@
     <string-array name="exercise_and_diet">
         <item>운동</item>
         <item>식단</item>
+    </string-array>
 
+    <string-array name="feed">
+        <item>소셜</item>
+        <item>랭킹</item>
     </string-array>
 </resources>

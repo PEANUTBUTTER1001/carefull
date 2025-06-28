@@ -30,17 +30,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.openstudy.carefull.R
 import com.openstudy.carefull.common.navigateToHome
 import com.openstudy.carefull.ui.theme.CarefullTheme
-
 
 @Composable
 fun Signin(navController: NavController) {
@@ -57,7 +54,6 @@ fun Signin(navController: NavController) {
             text = stringResource(R.string.app_name),
             style = MaterialTheme.typography.titleLarge
         )
-
         Image(
             modifier = Modifier
                 .padding(top = 50.dp)
@@ -67,49 +63,51 @@ fun Signin(navController: NavController) {
             contentDescription = null,
             contentScale = ContentScale.Crop,
         )
-
         Spacer(modifier = Modifier.height(30.dp))
-
         TextField(
             value = email,
             onValueChange = { newText ->
                 email = newText
             },
             label = {
-                Text(text = stringResource(R.string.email),
-                    style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(R.string.email),
+                    style = MaterialTheme.typography.bodyLarge
+                )
             },
             placeholder = {
-                Text(text = stringResource(R.string.email_input),
-                    style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(R.string.email_input),
+                    style = MaterialTheme.typography.bodyLarge
+                )
             },
             colors = TextFieldDefaults.colors(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             singleLine = true,
         )
-
         Spacer(modifier = Modifier.height(30.dp))
-
         TextField(
             value = password,
             onValueChange = { inputNickName ->
                 password = inputNickName
             },
             label = {
-                Text(text = stringResource(R.string.password),
-                    style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(R.string.password),
+                    style = MaterialTheme.typography.bodyLarge
+                )
             },
             placeholder = {
-                Text(text = stringResource(R.string.password_input),
-                    style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(R.string.password_input),
+                    style = MaterialTheme.typography.bodyLarge
+                )
             },
             colors = TextFieldDefaults.colors(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             singleLine = true,
         )
-
         Spacer(modifier = Modifier.height(30.dp))
-
         Button(
             onClick = {
                 navController.navigateToHome(
@@ -121,12 +119,12 @@ fun Signin(navController: NavController) {
             colors = ButtonDefaults.buttonColors(
                 contentColor = Color.White
             )
-        )
-        {
-            Text(text = stringResource(R.string.signin),
-                style = MaterialTheme.typography.labelLarge)
+        ) {
+            Text(
+                text = stringResource(R.string.signin),
+                style = MaterialTheme.typography.labelLarge
+            )
         }
-
         Spacer(modifier = Modifier.height(5.dp))
         Row(
             modifier = Modifier
@@ -142,13 +140,11 @@ fun Signin(navController: NavController) {
                     containerColor = Color.Transparent,
                     contentColor = Color.Black
                 )
-            )
-            {
+            ) {
                 Text(
                     text = stringResource(R.string.find_id),
                     style = MaterialTheme.typography.bodySmall
                 )
-
             }
             Text(text = "|")
             Button(
@@ -159,8 +155,7 @@ fun Signin(navController: NavController) {
                     containerColor = Color.Transparent,
                     contentColor = Color.Black
                 )
-            )
-            {
+            ) {
                 Text(
                     text = stringResource(R.string.find_password),
                     style = MaterialTheme.typography.bodySmall
@@ -175,8 +170,7 @@ fun Signin(navController: NavController) {
                     containerColor = Color.Transparent,
                     contentColor = Color.Black
                 )
-            )
-            {
+            ) {
                 Text(
                     text = stringResource(R.string.signup),
                     style = MaterialTheme.typography.bodySmall
@@ -184,7 +178,6 @@ fun Signin(navController: NavController) {
             }
         }
         Spacer(modifier = Modifier.height(5.dp))
-
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -200,8 +193,7 @@ fun Signin(navController: NavController) {
                     containerColor = Color(0xFFFFE000),
                     contentColor = Color.Black
                 )
-            )
-            {
+            ) {
                 Text(
                     text = stringResource(R.string.signin_kakao),
                     style = MaterialTheme.typography.labelLarge
