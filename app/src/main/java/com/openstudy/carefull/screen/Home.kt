@@ -26,7 +26,7 @@ import com.openstudy.carefull.ui.theme.CarefullTheme
 
 
 @Composable
-fun Home(navController: NavController) {
+fun Home() {
 
     Scaffold(
         bottomBar = {
@@ -68,7 +68,6 @@ fun Home(navController: NavController) {
 @Composable
 fun HomePreview() {
     CarefullTheme {
-        val navController = rememberNavController()
-        Home(navController = navController)
+        Home()
     }
 }

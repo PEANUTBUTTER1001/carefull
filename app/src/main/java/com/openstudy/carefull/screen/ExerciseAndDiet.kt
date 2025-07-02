@@ -45,15 +45,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.openstudy.carefull.R
 import com.openstudy.carefull.common.BottomNavigationBar
 import com.openstudy.carefull.ui.theme.CarefullTheme
 
 
 @Composable
-fun ExerciseAndDiet(navController: NavController) {
+fun ExerciseAndDiet() {
     var selectedTabIndex by remember { mutableIntStateOf(0) }
 
     Scaffold(
@@ -141,8 +139,10 @@ fun Exercise() {
                         .height(60.dp),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text(text = exercise,
-                        style = MaterialTheme.typography.bodyMedium)
+                    Text(
+                        text = exercise,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
                 }
                 Spacer(modifier = Modifier.height(10.dp))
             }
@@ -218,16 +218,22 @@ fun ExerciseCountDialog(
                         },
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
-                    ) { Text("-5",
-                        style = MaterialTheme.typography.bodyLarge)}
+                    ) {
+                        Text(
+                            "-5",
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                    }
                     Spacer(modifier = Modifier.width(10.dp))
                     Button(
                         onClick = { if (count > 1) count-- },
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
                     ) {
-                        Text("-1",
-                            style = MaterialTheme.typography.bodyLarge)
+                        Text(
+                            "-1",
+                            style = MaterialTheme.typography.bodyLarge
+                        )
                     }
 
                     Spacer(modifier = Modifier.width(10.dp))
@@ -236,8 +242,10 @@ fun ExerciseCountDialog(
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
                     ) {
-                        Text("+1",
-                            style = MaterialTheme.typography.bodyLarge)
+                        Text(
+                            "+1",
+                            style = MaterialTheme.typography.bodyLarge
+                        )
                     }
                     Spacer(modifier = Modifier.width(10.dp))
                     Button(
@@ -249,8 +257,10 @@ fun ExerciseCountDialog(
                         modifier = Modifier.size(40.dp),
                         contentPadding = PaddingValues(0.dp)
                     ) {
-                        Text("+5",
-                            style = MaterialTheme.typography.bodyLarge)
+                        Text(
+                            "+5",
+                            style = MaterialTheme.typography.bodyLarge
+                        )
                     }
                 }
                 Row(
@@ -265,8 +275,10 @@ fun ExerciseCountDialog(
                             .height(50.dp),
                         shape = MaterialTheme.shapes.large,
                         onClick = { onConfirm(count) }) {
-                        Text("확인",
-                            style = MaterialTheme.typography.titleLarge)
+                        Text(
+                            "확인",
+                            style = MaterialTheme.typography.titleLarge
+                        )
                     }
                 }
             }
@@ -425,7 +437,6 @@ data class AddedFood(
 @Composable
 fun ExerciseAndDietPreview() {
     CarefullTheme {
-        val navController = rememberNavController()
-        ExerciseAndDiet(navController = navController)
+        ExerciseAndDiet()
     }
 }
