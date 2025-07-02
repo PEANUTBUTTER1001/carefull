@@ -180,3 +180,6 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/java,kotlin,androidstudio
+
+# API 키
+/local.properties
