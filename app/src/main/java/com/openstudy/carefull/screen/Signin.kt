@@ -33,14 +33,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.openstudy.carefull.R
-import com.openstudy.carefull.common.navigateToHome
+import com.openstudy.carefull.navigation.AuthScreen
 import com.openstudy.carefull.ui.theme.CarefullTheme
 
 @Composable
-fun Signin(navController: NavController) {
+fun Signin(select: (AuthScreen) -> Unit) {
+    SigninScreen(select)
+}
+
+@Composable
+fun SigninScreen(select: (AuthScreen) -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -110,8 +113,7 @@ fun Signin(navController: NavController) {
         Spacer(modifier = Modifier.height(30.dp))
         Button(
             onClick = {
-                navController.navigateToHome(
-                )
+                select(AuthScreen.Signin)
             }, modifier = Modifier
                 .fillMaxWidth(0.7f)
                 .height(56.dp),
@@ -134,8 +136,7 @@ fun Signin(navController: NavController) {
         ) {
             Button(
                 onClick = {
-                    navController.navigateToHome(
-                    )
+
                 }, modifier = Modifier, colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
                     contentColor = Color.Black
@@ -149,8 +150,7 @@ fun Signin(navController: NavController) {
             Text(text = "|")
             Button(
                 onClick = {
-                    navController.navigateToHome(
-                    )
+                    select(AuthScreen.ForgotPassword)
                 }, modifier = Modifier, colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
                     contentColor = Color.Black
@@ -164,8 +164,7 @@ fun Signin(navController: NavController) {
             Text(text = "|")
             Button(
                 onClick = {
-                    navController.navigateToHome(
-                    )
+                    select(AuthScreen.Signup)
                 }, modifier = Modifier, colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
                     contentColor = Color.Black
@@ -184,7 +183,7 @@ fun Signin(navController: NavController) {
         ) {
             Button(
                 onClick = {
-                    navController.navigateToHome()
+
                 }, modifier = Modifier
                     .fillMaxWidth(0.7f)
                     .height(56.dp),
@@ -204,11 +203,10 @@ fun Signin(navController: NavController) {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun SigninPreview() {
-    val navController = rememberNavController()
-    CarefullTheme {
-        Signin(navController = navController)
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun SigninScreenPreview() {
+//    CarefullTheme {
+//        SigninScreen(login = {})
+//    }
+//}

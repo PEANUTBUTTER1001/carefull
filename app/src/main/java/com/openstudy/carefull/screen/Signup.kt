@@ -26,16 +26,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.openstudy.carefull.R
 import com.openstudy.carefull.common.CustomTextField
-import com.openstudy.carefull.common.navigateToHome
 import com.openstudy.carefull.ui.theme.CarefullTheme
 
 
 @Composable
-fun Signup(navController: NavController) {
+fun Signup() {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordRepeat by remember { mutableStateOf("") }
@@ -103,7 +100,7 @@ fun Signup(navController: NavController) {
 
         Button(
             onClick = {
-                navController.navigateToHome()
+
             }, modifier = Modifier
                 .fillMaxWidth(0.7f)
                 .height(56.dp),
@@ -122,8 +119,7 @@ fun Signup(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun SignupPreview() {
-    val navController = rememberNavController()
     CarefullTheme {
-        Signup(navController = navController)
+        Signup()
     }
 }

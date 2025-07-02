@@ -17,8 +17,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.openstudy.carefull.R
 import com.openstudy.carefull.common.BottomNavigationBar
 import com.openstudy.carefull.common.RowLine
@@ -26,7 +24,7 @@ import com.openstudy.carefull.ui.theme.CarefullTheme
 
 
 @Composable
-fun Home(navController: NavController) {
+fun Home() {
 
     Scaffold(
         bottomBar = {
@@ -68,7 +66,6 @@ fun Home(navController: NavController) {
 @Composable
 fun HomePreview() {
     CarefullTheme {
-        val navController = rememberNavController()
-        Home(navController = navController)
+        Home()
     }
 }
