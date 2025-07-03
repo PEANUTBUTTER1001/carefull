@@ -1,4 +1,4 @@
-package com.openstudy.carefull.screen
+package com.openstudy.carefull.screen.routine
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
