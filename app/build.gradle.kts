@@ -29,7 +29,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        manifestPlaceholders["NAVER_CLIENT_ID"] = naverMapClientId
+        manifestPlaceholders["NAVER_MAP_CLIENT_ID"] = naverMapClientId
     }
 
     buildTypes {
