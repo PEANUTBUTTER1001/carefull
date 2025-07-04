@@ -16,6 +16,9 @@ kotlinSerialization = "2.1.21"
 playServicesMaps = "19.2.0"
 appcompat = "1.6.1"
 material = "1.10.0"
+firebaseBom = "33.16.0"
+firebaseFirestoreKtx = "25.1.4"
+googleGmsServices = "4.4.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +45,11 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -49,3 +57,11 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin"}
 android-library = { id = "com.android.library", version.ref = "agp" }
+
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsServices" }
+
+[bundles]
+compose-libraries = ["androidx-activity-compose",  "androidx-ui", "androidx-ui-graphics",
+   "androidx-ui-tooling", "androidx-ui-tooling-preview", "androidx-material3", "androidx-material3-android"]
+firebase-libraries = ["firebase-firestore-ktx"]
+
