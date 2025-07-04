@@ -1,4 +1,4 @@
-package com.openstudy.carefull.screen
+package com.openstudy.carefull.screen.auth
 
 
 import androidx.compose.foundation.layout.Arrangement

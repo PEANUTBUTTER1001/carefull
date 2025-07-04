@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "412325731411",
+    "project_id": "carefull-d9759",
+    "storage_bucket": "carefull-d9759.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412325731411:android:bf4cf621cd795c59783aa6",
+        "android_client_info": {
+          "package_name": "com.openstudy.carefull"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4Ge8FMsa_vW4WavPz1VhcuRzQS63wA_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
