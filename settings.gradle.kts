@@ -23,5 +23,4 @@ dependencyResolutionManagement {
 rootProject.name = "Carefull"
 include(":app")
 include(":data")
-include(":feature")
 include(":shared")
