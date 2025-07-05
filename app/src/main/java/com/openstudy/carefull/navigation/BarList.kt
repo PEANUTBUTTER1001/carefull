@@ -50,9 +50,9 @@ sealed class SubTopBarType(val tabs: List<TopBar>) {
 
     data object SubSearch : SubTopBarType(
         tabs = listOf(
-            TopBar(title = "병원", route = NavigationRoute.ChatBotScreen),
-            TopBar(title = "질환", route = NavigationRoute.HospitalInfo),
-            TopBar(title = "약", route = NavigationRoute.MedicineInfoScreen)
+            TopBar(title = "병원", route = NavigationRoute.DiseaseSearchScreen),
+            TopBar(title = "질환", route = NavigationRoute.DiseaseSearchScreen),
+            TopBar(title = "약", route = NavigationRoute.DiseaseSearchScreen)
         )
     )
 

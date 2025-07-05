@@ -313,9 +313,9 @@ fun AppScaffold(
             NavigationRoute.Diet::class.qualifiedName -> TopBarType.Routine
 
             NavigationRoute.ChatBotScreen::class.qualifiedName,
-            NavigationRoute.DiseaseSearchScreen::class.qualifiedName,
             NavigationRoute.HospitalInfo::class.qualifiedName,
-            NavigationRoute.MedicineInfoScreen::class.qualifiedName
+            NavigationRoute.MedicineInfoScreen::class.qualifiedName,
+            NavigationRoute.DiseaseSearchScreen::class.qualifiedName
                 -> TopBarType.Diagnosis
 
             NavigationRoute.Social::class.qualifiedName,
@@ -325,7 +325,6 @@ fun AppScaffold(
         }
         TopNavigationBar(
             navController = navController,
-            currentRoute = currentRoute,
             topAppBarType = topBarType
         )
     }
@@ -335,8 +334,9 @@ fun AppScaffold(
             NavigationRoute.Exercise::class.qualifiedName,
             NavigationRoute.Diet::class.qualifiedName,
             NavigationRoute.ChatBotScreen::class.qualifiedName,
-            NavigationRoute.DiseaseSearchScreen::class.qualifiedName,
             NavigationRoute.HospitalInfo::class.qualifiedName,
+            NavigationRoute.MedicineInfoScreen::class.qualifiedName,
+            NavigationRoute.DiseaseSearchScreen::class.qualifiedName,
             NavigationRoute.Social::class.qualifiedName,
             NavigationRoute.Ranking::class.qualifiedName,
             NavigationRoute.MyPage::class.qualifiedName

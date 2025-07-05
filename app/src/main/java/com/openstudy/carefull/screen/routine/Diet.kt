@@ -12,7 +12,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.AddAPhoto
 import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.ImageSearch
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -102,7 +105,7 @@ fun MealSection(
                 Spacer(modifier = Modifier.weight(1f))
                 IconButton(onClick = onAddClick) {
                     Icon(
-                        imageVector = Icons.Default.AccountBox,
+                        imageVector = Icons.Default.ImageSearch,
                         contentDescription = "${mealType.time} 음식 추가",
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(28.dp)
@@ -110,8 +113,8 @@ fun MealSection(
                 }
                 IconButton(onClick = onAddClick) {
                     Icon(
-                        imageVector = Icons.Default.AddCircle,
-                        contentDescription = "${mealType.time} 음식 추가",
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "${mealType.time} 음식 검색",
                         tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(28.dp)
                     )
