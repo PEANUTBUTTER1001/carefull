@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import java.util.Properties
 
 plugins {
@@ -7,6 +8,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.hilt)
+    id("com.google.devtools.ksp").version("1.6.10-1.0.4")
 }
 
 val localProperties = Properties()
@@ -31,6 +34,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders["NAVER_CLIENT_ID"] = naverMapClientId
+
+        // API 키를 local.properties에서 읽어와 BuildConfig에 추가
+        val medicineApiKey = gradleLocalProperties(rootDir, providers).getProperty("medicine_api_key") ?: ""
+        buildConfigField("String", "MEDICINE_API_KEY", "\"$medicineApiKey\"")
     }
 
     buildTypes {
@@ -49,9 +56,10 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildFeatures {
-        compose = true
-    }
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 dependencies {
@@ -69,6 +77,21 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.android)
     implementation("com.naver.maps:map-sdk:3.22.0")
     implementation(libs.play.services.maps)
+//    implementation("androidx.navigation:navigation-compose:2.9.0")
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+
+    // Retrofit + Moshi
+    implementation(libs.retrofit)
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.retrofit.moshi)
+    implementation(libs.converter.moshi)
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.2")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
