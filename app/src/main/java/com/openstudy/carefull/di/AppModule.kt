@@ -1,7 +1,7 @@
 package com.openstudy.carefull.di
 
-import com.openstudy.data.api.MedicineApiService
-import com.openstudy.data.repository.MedicineRepository
+import com.openstudy.carefull.data.network.MedicineApiService
+import com.openstudy.carefull.data.repository.MedicineRepository
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides

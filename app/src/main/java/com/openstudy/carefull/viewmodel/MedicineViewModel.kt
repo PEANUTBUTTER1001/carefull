@@ -3,8 +3,8 @@ package com.openstudy.carefull.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.openstudy.data.model.MedicineItem
-import com.openstudy.data.repository.MedicineRepository
+import com.openstudy.carefull.data.network.MedicineItem
+import com.openstudy.carefull.data.repository.MedicineRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

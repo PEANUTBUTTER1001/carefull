@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.openstudy.data"
+    namespace = "com.openstudy.carefull.data"
     compileSdk = 35
 
     defaultConfig {

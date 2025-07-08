@@ -23,12 +23,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.openstudy.carefull.chatbot.ChatBotScreen
-import com.openstudy.carefull.diseaseSearch.DiseaseSearchScreen
-import com.openstudy.carefull.hospitalInfo.HospitalInfoScreen
-import com.openstudy.carefull.hospitalSearch.HospitalSearchScreen
-import com.openstudy.carefull.medicineInfo.MedicineInfoScreen
-import com.openstudy.carefull.medicineSearch.MedicineSearchScreen
+import com.openstudy.carefull.screen.chatbot.ChatBotScreen
+import com.openstudy.carefull.screen.hospital.HospitalInfoScreen
+import com.openstudy.carefull.screen.hospital.HospitalSearchScreen
+import com.openstudy.carefull.screen.medicine.MedicineInfoScreen
+import com.openstudy.carefull.screen.medicine.MedicineSearchScreen
 import com.openstudy.carefull.screen.Home
 import com.openstudy.carefull.screen.Splash
 import com.openstudy.carefull.screen.auth.ForgotPassword

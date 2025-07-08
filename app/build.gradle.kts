@@ -90,25 +90,12 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
-//     // ViewModel + Coroutine
-//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-//    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
-
     // Retrofit + Moshi
     implementation(libs.retrofit)
     implementation(libs.retrofit.moshi)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
     ksp(libs.moshi.codegen)
-
-//    // Compose
-//    implementation("androidx.compose.ui:ui:1.6.4")
-//    implementation("androidx.compose.material3:material3:1.2.1")
-//    implementation("androidx.activity:activity-compose:1.9.0")
-//
-//    // Coil (이미지 추가 대비)
-//    implementation("io.coil-kt:coil-compose:2.6.0")
 
     implementation(libs.javapoet)
 
