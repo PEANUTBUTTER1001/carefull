@@ -147,7 +147,7 @@ fun BottomNavigationBar(navController: NavController) {
                 NavigationRoute.Exercise -> {
                     currentDestination?.hierarchy?.any { dest ->
                         dest.route == NavigationRoute.Exercise::class.qualifiedName ||
-                                dest.route == NavigationRoute.Diet::class.qualifiedName ||
+                                dest.route == NavigationRoute.DietScreen::class.qualifiedName ||
                                 dest.route == NavigationRoute.SearchFood::class.qualifiedName
                     } == true
                 }

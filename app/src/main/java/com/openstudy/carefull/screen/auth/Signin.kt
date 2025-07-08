@@ -195,12 +195,3 @@ fun Signin(select: (AuthScreen) -> Unit) {
         }
     }
 }
-
-
-//@Preview(showBackground = true)
-//@Composable
-//fun SigninScreenPreview() {
-//    CarefullTheme {
-//        SigninScreen(login = {})
-//    }
-//}

@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.google.gms.google.services)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 val localProperties = Properties()
@@ -84,4 +86,14 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlin.reflect)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.kotlinx.metadata.jvm)
+
+    implementation(libs.androidx.hilt.navigation.compose)
+
+}
+kapt {
+    correctErrorTypes = true
 }

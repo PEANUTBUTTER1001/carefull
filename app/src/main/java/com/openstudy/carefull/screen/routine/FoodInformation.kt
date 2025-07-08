@@ -133,19 +133,19 @@ fun FoodInformation() {
                 //더미데이터
                 item {
                     FoodSearchResultItem(
-                        food = Food(101, "햄버거", 550, 45, 25, 30),
+                        food = FoodNutri(101, "햄버거", 550, 45, 25, 30),
                         onAddClick = {})
                     FoodSearchResultItem(
-                        food = Food(103, "치즈버거", 650, 48, 28, 35),
+                        food = FoodNutri(103, "치즈버거", 650, 48, 28, 35),
                         onAddClick = {})
                     FoodSearchResultItem(
-                        food = Food(104, "더블버거", 850, 50, 40, 50),
+                        food = FoodNutri(104, "더블버거", 850, 50, 40, 50),
                         onAddClick = {})
                     FoodSearchResultItem(
-                        food = Food(105, "새우버거", 480, 55, 18, 22),
+                        food = FoodNutri(105, "새우버거", 480, 55, 18, 22),
                         onAddClick = {})
                     FoodSearchResultItem(
-                        food = Food(106, "치킨버거", 520, 47, 26, 25),
+                        food = FoodNutri(106, "치킨버거", 520, 47, 26, 25),
                         onAddClick = {})
                 }
             }

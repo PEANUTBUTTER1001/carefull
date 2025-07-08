@@ -18,7 +18,7 @@ sealed class TopBarType(val tabs: List<TopBar>) {
     data object Routine : TopBarType(
         tabs = listOf(
             TopBar(title = "운동", route = NavigationRoute.Exercise),
-            TopBar(title = "식단", route = NavigationRoute.Diet)
+            TopBar(title = "식단", route = NavigationRoute.DietScreen)
         )
     )
 
