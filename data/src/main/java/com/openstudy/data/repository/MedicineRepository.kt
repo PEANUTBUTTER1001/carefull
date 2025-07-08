@@ -11,6 +11,7 @@ class MedicineRepository @Inject constructor(
 ) {
     suspend fun getMedicineByName(name: String): List<MedicineItem> {
         return try {
+            Log.d("API_KEY_CHECK", "API Key: $serviceKey")
             val response = api.getDrugInfo(serviceKey, name)
             if (response.isSuccessful) {
                 val items = response.body()?.response?.body?.items ?: emptyList()

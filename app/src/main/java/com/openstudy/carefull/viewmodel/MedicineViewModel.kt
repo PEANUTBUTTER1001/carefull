@@ -1,5 +1,6 @@
 package com.openstudy.carefull.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.openstudy.data.model.MedicineItem
@@ -22,9 +23,18 @@ class MedicineViewModel @Inject constructor(
     val selectedItem: StateFlow<MedicineItem?> = _selectedItem
 
     fun searchMedicine(name: String) {
+//        viewModelScope.launch {
+//            val result = repository.getMedicineByName(name)
+//            _medicineList.value = result
+//        }
         viewModelScope.launch {
-            val result = repository.getMedicineByName(name)
-            _medicineList.value = result
+            val response = repository.getRawDrugInfo(name)
+            if (response.isSuccessful) {
+                val rawJson = response.body()?.string()
+                Log.d("RAW_RESPONSE", rawJson ?: "null")
+            } else {
+                Log.e("RAW_RESPONSE", "응답 실패 코드: ${response.code()}")
+            }
         }
     }
 

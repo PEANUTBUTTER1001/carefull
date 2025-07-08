@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.hilt)
-    id("com.google.devtools.ksp").version("1.6.10-1.0.4")
+    alias(libs.plugins.ksp)
 }
 
 val localProperties = Properties()
@@ -40,6 +40,11 @@ android {
         buildConfigField("String", "MEDICINE_API_KEY", "\"$medicineApiKey\"")
     }
 
+    buildFeatures {
+//        viewBinding = true
+        buildConfig = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -56,10 +61,9 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
-
-kapt {
-    correctErrorTypes = true
+    hilt {
+        enableAggregatingTask = false
+    }
 }
 
 dependencies {
@@ -75,28 +79,45 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.runtime.android)
+
+    // 네이버 지도
     implementation("com.naver.maps:map-sdk:3.22.0")
+
     implementation(libs.play.services.maps)
-//    implementation("androidx.navigation:navigation-compose:2.9.0")
 
     // Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
+
+//     // ViewModel + Coroutine
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+//    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
 
     // Retrofit + Moshi
     implementation(libs.retrofit)
+    implementation(libs.retrofit.moshi)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
-    implementation(libs.retrofit.moshi)
-    implementation(libs.converter.moshi)
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.2")
+    ksp(libs.moshi.codegen)
+
+//    // Compose
+//    implementation("androidx.compose.ui:ui:1.6.4")
+//    implementation("androidx.compose.material3:material3:1.2.1")
+//    implementation("androidx.activity:activity-compose:1.9.0")
+//
+//    // Coil (이미지 추가 대비)
+//    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    implementation(libs.javapoet)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
 
+    // firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore.ktx)
     

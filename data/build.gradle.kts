@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt)
-    id("com.google.devtools.ksp").version("1.6.10-1.0.4")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -33,12 +33,11 @@ android {
         jvmTarget = "17"
     }
     buildFeatures {
-        buildConfig = false // 필요 없음
+        buildConfig = true
     }
-}
-
-kapt {
-    correctErrorTypes = true
+    hilt {
+        enableAggregatingTask = false
+    }
 }
 
 dependencies {
@@ -47,22 +46,20 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation("com.google.code.gson:gson:2.13.1")
-//    implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 
     // Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
 
     // Retrofit + Moshi
     implementation(libs.retrofit)
+    implementation(libs.retrofit.moshi)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
-    implementation(libs.retrofit.moshi)
-    implementation(libs.converter.moshi)
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.2")
+    ksp(libs.moshi.codegen)
 
+    // firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore.ktx)
 
