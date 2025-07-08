@@ -33,7 +33,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        manifestPlaceholders["NAVER_CLIENT_ID"] = naverMapClientId
+        manifestPlaceholders["NAVER_MAP_CLIENT_ID"] = naverMapClientId
 
         // API 키를 local.properties에서 읽어와 BuildConfig에 추가
         val medicineApiKey = gradleLocalProperties(rootDir, providers).getProperty("medicine_api_key") ?: ""
