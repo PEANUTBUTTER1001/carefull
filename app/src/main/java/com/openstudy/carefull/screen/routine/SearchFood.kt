@@ -40,7 +40,7 @@ import com.openstudy.carefull.ui.theme.CarefullTheme
 @Composable
 fun SearchFood() {
     var search by remember { mutableStateOf("") }
-    var searchResults by remember { mutableStateOf<List<Food>>(emptyList()) }
+    var searchResults by remember { mutableStateOf<List<FoodNutri>>(emptyList()) }
 
     LaunchedEffect(key1 = search) {
         searchResults = searchDummyFood(search)
@@ -113,7 +113,7 @@ fun SearchFood() {
         ) {
             items(
                 items = searchResults,
-                key = { it.id }) { food -> // searchResults 리스트를 순회하며 각 food에 대해 그림
+                key = { it.id }) { food ->
                 FoodSearchResultItem(
                     food = food,
                     onAddClick = {
@@ -128,8 +128,8 @@ fun SearchFood() {
 
 @Composable
 fun FoodSearchResultItem(
-    food: Food, // 표시할 Food 데이터
-    onAddClick: () -> Unit // '추가' 버튼 클릭 이벤트 콜백
+    food: FoodNutri,
+    onAddClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -147,11 +147,11 @@ fun FoodSearchResultItem(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            // 1. 음식 이름과 추가 버튼
+            // 음식 이름과 추가 버튼
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = food.name,
-                    style = MaterialTheme.typography.bodyLarge,// "치즈 햄버거"
+                    style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.weight(1f)
                 )
                 IconButton(onClick = { }) {
@@ -181,8 +181,8 @@ fun FoodSearchResultItem(
     }
 }
 
-fun searchDummyFood(query: String): List<Food> {
-    val hamburger = Food(
+fun searchDummyFood(query: String): List<FoodNutri> {
+    val hamburger = FoodNutri(
         id = 101,
         name = "hamburger",
         calories = 550,
@@ -213,7 +213,7 @@ fun NutritionInfo(label: String, value: String) {
     }
 }
 
-data class Food(
+data class FoodNutri(
     val id: Int,
     val name: String,
     val calories: Int,

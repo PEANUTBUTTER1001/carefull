@@ -39,7 +39,7 @@ import com.openstudy.carefull.screen.mypage.AccountManagement
 import com.openstudy.carefull.screen.mypage.BasalMetabolicRateMeasurement
 import com.openstudy.carefull.screen.mypage.MyPage
 import com.openstudy.carefull.screen.mypage.PostWrittenManagement
-import com.openstudy.carefull.screen.routine.Diet
+import com.openstudy.carefull.screen.routine.diet_app.DietScreen
 import com.openstudy.carefull.screen.routine.Exercise
 import com.openstudy.carefull.screen.routine.FoodInformation
 import com.openstudy.carefull.screen.routine.SearchFood
@@ -74,7 +74,7 @@ sealed class NavigationRoute {
     data object Exercise : NavigationRoute()
 
     @Serializable
-    data object Diet : NavigationRoute()
+    data object DietScreen : NavigationRoute()
 
     @Serializable
     data object SearchFood : NavigationRoute()
@@ -251,8 +251,8 @@ fun NavigationControl() {
                     Exercise()
                 }
 
-                composable<NavigationRoute.Diet> {
-                    Diet()
+                composable<NavigationRoute.DietScreen> {
+                    DietScreen()
                 }
 
                 composable<NavigationRoute.SearchFood> {
@@ -334,7 +334,7 @@ fun AppScaffold(
         val topBarType = when (currentRoute) {
 
             NavigationRoute.Exercise::class.qualifiedName,
-            NavigationRoute.Diet::class.qualifiedName -> TopBarType.Routine
+            NavigationRoute.DietScreen::class.qualifiedName -> TopBarType.Routine
 
             NavigationRoute.ChatBotScreen::class.qualifiedName,
             NavigationRoute.HospitalInfoScreen::class.qualifiedName,
@@ -343,6 +343,7 @@ fun AppScaffold(
             NavigationRoute.DiseaseSearchScreen::class.qualifiedName,
             NavigationRoute.MedicineSearchScreen::class.qualifiedName -> TopBarType.Diagnosis
 
+
             NavigationRoute.Social::class.qualifiedName,
             NavigationRoute.Ranking::class.qualifiedName -> TopBarType.Feed
 
@@ -350,7 +351,6 @@ fun AppScaffold(
         }
         TopNavigationBar(
             navController = navController,
-            currentRoute = currentRoute,
             topAppBarType = topBarType
         )
     }
@@ -358,7 +358,7 @@ fun AppScaffold(
         val bottomBarType = when (currentRoute) {
             NavigationRoute.Home::class.qualifiedName,
             NavigationRoute.Exercise::class.qualifiedName,
-            NavigationRoute.Diet::class.qualifiedName,
+            NavigationRoute.DietScreen::class.qualifiedName,
             NavigationRoute.ChatBotScreen::class.qualifiedName,
             NavigationRoute.HospitalInfoScreen::class.qualifiedName,
             NavigationRoute.MedicineInfoScreen::class.qualifiedName,
