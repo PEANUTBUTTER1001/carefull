@@ -25,7 +25,7 @@ sealed class TopBarType(val tabs: List<TopBar>) {
     data object Diagnosis : TopBarType(
         tabs = listOf(
             TopBar(title = "진료", route = NavigationRoute.ChatBotScreen),
-            TopBar(title = "검색", route = NavigationRoute.DiseaseSearchScreen)
+            TopBar(title = "검색", route = NavigationRoute.HospitalSearchScreen)
         )
     )
 
@@ -43,16 +43,16 @@ sealed class SubTopBarType(val tabs: List<TopBar>) {
     data object SubDiagnosis : SubTopBarType(
         tabs = listOf(
             TopBar(title = "챗봇", route = NavigationRoute.ChatBotScreen),
-            TopBar(title = "병원정보", route = NavigationRoute.HospitalInfo),
-            TopBar(title = "약정보", route = NavigationRoute.MedicineInfoScreen)
+            TopBar(title = "병원 정보", route = NavigationRoute.HospitalInfoScreen),
+            TopBar(title = "약 정보", route = NavigationRoute.MedicineInfoScreen)
         )
     )
 
     data object SubSearch : SubTopBarType(
         tabs = listOf(
-            TopBar(title = "병원", route = NavigationRoute.DiseaseSearchScreen),
+            TopBar(title = "병원", route = NavigationRoute.HospitalSearchScreen),
             TopBar(title = "질환", route = NavigationRoute.DiseaseSearchScreen),
-            TopBar(title = "약", route = NavigationRoute.DiseaseSearchScreen)
+            TopBar(title = "약", route = NavigationRoute.MedicineSearchScreen)
         )
     )
 
@@ -64,7 +64,7 @@ sealed class SubFeedTopBarType(val tabs: List<TopBar>) {
     data object SubSocial : SubTopBarType(
         tabs = listOf(
             TopBar(title = "전체", route = NavigationRoute.ChatBotScreen),
-            TopBar(title = "운동", route = NavigationRoute.HospitalInfo),
+            TopBar(title = "운동", route = NavigationRoute.HospitalInfoScreen),
             TopBar(title = "식단", route = NavigationRoute.MedicineInfoScreen),
             TopBar(title = "병원", route = NavigationRoute.MedicineInfoScreen)
         )
@@ -73,7 +73,7 @@ sealed class SubFeedTopBarType(val tabs: List<TopBar>) {
     data object SubRanking : SubTopBarType(
         tabs = listOf(
             TopBar(title = "스쿼트", route = NavigationRoute.ChatBotScreen),
-            TopBar(title = "벤치프레스", route = NavigationRoute.HospitalInfo),
+            TopBar(title = "벤치프레스", route = NavigationRoute.HospitalInfoScreen),
             TopBar(title = "데드리프트", route = NavigationRoute.MedicineInfoScreen),
             TopBar(title = "푸시업", route = NavigationRoute.MedicineInfoScreen),
             TopBar(title = "레그레이즈", route = NavigationRoute.MedicineInfoScreen),

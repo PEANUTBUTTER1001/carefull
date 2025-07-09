@@ -1,4 +1,4 @@
-package com.openstudy.data
+package com.openstudy.carefull.shared
 
 import org.junit.Test
 

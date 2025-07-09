@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.openstudy.shared"
+    namespace = "com.openstudy.carefull.shared"
     compileSdk = 35
 
     defaultConfig {

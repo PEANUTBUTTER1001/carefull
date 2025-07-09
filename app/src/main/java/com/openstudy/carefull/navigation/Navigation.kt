@@ -17,15 +17,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.openstudy.carefull.chatbot.ChatBotScreen
-import com.openstudy.carefull.disease.DiseaseSearchScreen
-import com.openstudy.carefull.hospitalInfo.HospitalInfoScreen
-import com.openstudy.carefull.medicineInfo.MedicineInfoScreen
+import com.openstudy.carefull.screen.chatbot.ChatBotScreen
+import com.openstudy.carefull.screen.hospital.HospitalInfoScreen
+import com.openstudy.carefull.screen.hospital.HospitalSearchScreen
+import com.openstudy.carefull.screen.medicine.MedicineInfoScreen
+import com.openstudy.carefull.screen.medicine.MedicineSearchScreen
 import com.openstudy.carefull.screen.Home
 import com.openstudy.carefull.screen.Splash
 import com.openstudy.carefull.screen.auth.ForgotPassword
@@ -42,6 +44,7 @@ import com.openstudy.carefull.screen.routine.Exercise
 import com.openstudy.carefull.screen.routine.FoodInformation
 import com.openstudy.carefull.screen.routine.SearchFood
 import com.openstudy.carefull.ui.theme.CarefullTheme
+import com.openstudy.carefull.viewmodel.MedicineViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
@@ -83,13 +86,19 @@ sealed class NavigationRoute {
     data object ChatBotScreen : NavigationRoute()
 
     @Serializable
-    data object HospitalInfo : NavigationRoute()
+    data object HospitalInfoScreen : NavigationRoute()
+
+    @Serializable
+    data object MedicineInfoScreen : NavigationRoute()
+
+    @Serializable
+    data object HospitalSearchScreen: NavigationRoute()
 
     @Serializable
     data object DiseaseSearchScreen : NavigationRoute()
 
     @Serializable
-    data object MedicineInfoScreen : NavigationRoute()
+    data object MedicineSearchScreen : NavigationRoute()
 
     @Serializable
     data object Social : NavigationRoute()
@@ -121,6 +130,7 @@ sealed class AuthScreen {
 @Composable
 fun NavigationControl() {
     val navController = rememberNavController()
+    val viewModel: MedicineViewModel = hiltViewModel()
     val context = LocalContext.current
     val activity = (context as? Activity)
     val scope = rememberCoroutineScope()
@@ -154,11 +164,12 @@ fun NavigationControl() {
             val subTopBarType = when (currentRoute) {
 
                 NavigationRoute.ChatBotScreen::class.qualifiedName,
-                NavigationRoute.HospitalInfo::class.qualifiedName,
+                NavigationRoute.HospitalInfoScreen::class.qualifiedName,
                 NavigationRoute.MedicineInfoScreen::class.qualifiedName -> SubTopBarType.SubDiagnosis
 
-                NavigationRoute.DiseaseSearchScreen::class.qualifiedName
-                    -> SubTopBarType.SubSearch
+                NavigationRoute.HospitalSearchScreen::class.qualifiedName,
+                NavigationRoute.DiseaseSearchScreen::class.qualifiedName,
+                NavigationRoute.MedicineSearchScreen::class.qualifiedName -> SubTopBarType.SubSearch
 
                 else -> SubTopBarType.None
             }
@@ -252,20 +263,33 @@ fun NavigationControl() {
                     FoodInformation()
                 }
 
-                composable<NavigationRoute.ChatBotScreen> {
+                composable<NavigationRoute.ChatBotScreen> { // 진료 - 챗봇
                     ChatBotScreen()
                 }
 
-                composable<NavigationRoute.HospitalInfo> {
+                composable<NavigationRoute.HospitalInfoScreen> { // 진료 - 병원
                     HospitalInfoScreen()
                 }
 
-                composable<NavigationRoute.DiseaseSearchScreen> {
+                composable<NavigationRoute.MedicineInfoScreen> { // 진료 - 약
+                    MedicineInfoScreen(viewModel = viewModel)
+                }
+
+                composable<NavigationRoute.HospitalSearchScreen> { // 검색 - 병원
+                    HospitalSearchScreen()
+                }
+
+                composable<NavigationRoute.DiseaseSearchScreen> { // 검색 - 질환
                     DiseaseSearchScreen()
                 }
 
-                composable<NavigationRoute.MedicineInfoScreen> {
-                    MedicineInfoScreen()
+                composable<NavigationRoute.MedicineSearchScreen> { // 검색 - 약
+                    MedicineSearchScreen(
+                        viewModel = viewModel,
+                        onNavigateToMedicineInfo = {
+                            navController.navigate(NavigationRoute.MedicineInfoScreen)
+                        }
+                    )
                 }
 
                 composable<NavigationRoute.Social> {
@@ -313,10 +337,12 @@ fun AppScaffold(
             NavigationRoute.DietScreen::class.qualifiedName -> TopBarType.Routine
 
             NavigationRoute.ChatBotScreen::class.qualifiedName,
-            NavigationRoute.HospitalInfo::class.qualifiedName,
+            NavigationRoute.HospitalInfoScreen::class.qualifiedName,
             NavigationRoute.MedicineInfoScreen::class.qualifiedName,
-            NavigationRoute.DiseaseSearchScreen::class.qualifiedName
-                -> TopBarType.Diagnosis
+            NavigationRoute.HospitalSearchScreen::class.qualifiedName,
+            NavigationRoute.DiseaseSearchScreen::class.qualifiedName,
+            NavigationRoute.MedicineSearchScreen::class.qualifiedName -> TopBarType.Diagnosis
+
 
             NavigationRoute.Social::class.qualifiedName,
             NavigationRoute.Ranking::class.qualifiedName -> TopBarType.Feed
@@ -334,9 +360,11 @@ fun AppScaffold(
             NavigationRoute.Exercise::class.qualifiedName,
             NavigationRoute.DietScreen::class.qualifiedName,
             NavigationRoute.ChatBotScreen::class.qualifiedName,
-            NavigationRoute.HospitalInfo::class.qualifiedName,
+            NavigationRoute.HospitalInfoScreen::class.qualifiedName,
             NavigationRoute.MedicineInfoScreen::class.qualifiedName,
+            NavigationRoute.HospitalSearchScreen::class.qualifiedName,
             NavigationRoute.DiseaseSearchScreen::class.qualifiedName,
+            NavigationRoute.MedicineSearchScreen::class.qualifiedName,
             NavigationRoute.Social::class.qualifiedName,
             NavigationRoute.Ranking::class.qualifiedName,
             NavigationRoute.MyPage::class.qualifiedName
