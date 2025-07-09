@@ -1,4 +1,4 @@
-package com.openstudy.carefull.medicineInfo
+package com.openstudy.carefull.data.model
 
 data class MedicineInfo(
     val name: String,

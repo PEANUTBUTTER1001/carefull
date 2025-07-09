@@ -1,4 +1,4 @@
-package com.openstudy.carefull.chatbot
+package com.openstudy.carefull.screen.chatbot
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,10 +25,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.openstudy.carefull.data.model.ChatBotMessageInfo
 import com.openstudy.carefull.ui.theme.CarefullTheme
+import com.openstudy.carefull.viewmodel.ChatBotViewModel
 
 @Composable
-fun ChatBotScreen(viewModel: ChatViewModel = ChatViewModel(), modifier: Modifier = Modifier) {
+fun ChatBotScreen(viewModel: ChatBotViewModel = ChatBotViewModel(), modifier: Modifier = Modifier) {
     var userInput by remember { mutableStateOf("") }
     
     val messages = viewModel.chatMessages.reversed()
@@ -63,7 +65,7 @@ fun ChatBotScreen(viewModel: ChatViewModel = ChatViewModel(), modifier: Modifier
 }
 
 @Composable
-fun ChatBubble(message: ChatMessage) {
+fun ChatBubble(message: ChatBotMessageInfo) {
     val alignment = if (message.isUser) Alignment.CenterEnd else Alignment.CenterStart
     val bgColor = if (message.isUser) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant
     val textColor = if (message.isUser) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface

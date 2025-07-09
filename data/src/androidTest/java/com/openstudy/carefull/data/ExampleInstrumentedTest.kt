@@ -1,4 +1,4 @@
-package com.openstudy.shared
+package com.openstudy.carefull.data
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.openstudy.shared.test", appContext.packageName)
+        assertEquals("com.openstudy.carefull.data.test", appContext.packageName)
     }
 }

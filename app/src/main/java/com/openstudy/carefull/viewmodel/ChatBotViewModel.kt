@@ -1,22 +1,23 @@
-package com.openstudy.carefull.chatbot
+package com.openstudy.carefull.viewmodel
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
+import com.openstudy.carefull.data.model.ChatBotMessageInfo
 
-class ChatViewModel : ViewModel() {
-    val chatMessages = mutableStateListOf<ChatMessage>()
+class ChatBotViewModel : ViewModel() {
+    val chatMessages = mutableStateListOf<ChatBotMessageInfo>()
 
     init {
-        chatMessages.add(ChatMessage("안녕하세요! 챗봇입니다.", false))
+        chatMessages.add(ChatBotMessageInfo("안녕하세요! 챗봇입니다.", false))
     }
 
     fun onUserMessage(input: String) {
         if (input.isBlank()) return
 
-        chatMessages.add(ChatMessage(input, true))
+        chatMessages.add(ChatBotMessageInfo(input, true))
 
         val response = generateResponse(input)
-        chatMessages.add(ChatMessage(response, false))
+        chatMessages.add(ChatBotMessageInfo(response, false))
     }
 
     private fun generateResponse(input: String): String {

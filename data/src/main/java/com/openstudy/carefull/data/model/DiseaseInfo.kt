@@ -1,4 +1,4 @@
-package com.openstudy.carefull.disease
+package com.openstudy.carefull.data.model
 
 data class DiseaseInfo(
     val name: String,
